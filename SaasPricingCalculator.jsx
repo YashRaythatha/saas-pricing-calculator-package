@@ -12,7 +12,7 @@ const usd = (n) =>
 const PLANS = {
   free:   { key: "free",   name: "Free Trial",     validityDays: 30, maxUsers: 10,   platformPerSeat: 0,   labPerSeat: 0   },
   basic:  { key: "basic",  name: "Basic Plan",     validityDays: 45, maxUsers: 500,  platformPerSeat: 125, labPerSeat: 75  },
-  medium: { key: "medium", name: "Medium Plan",    validityDays: 45, maxUsers: 2000, platformPerSeat: 100, labPerSeat: 125 },
+      medium: { key: "medium", name: "Premium Plan",    validityDays: 45, maxUsers: 2000, platformPerSeat: 100, labPerSeat: 125 },
   enterprise: { key: "enterprise", name: "Enterprise Plan", validityDays: 60, maxUsers: 5000, platformPerSeat: 75, labPerSeat: 150 },
 };
 

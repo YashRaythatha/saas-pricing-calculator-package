@@ -112,7 +112,7 @@ const ACCENT = {
 ## 🎯 Features
 
 - **Dual Pricing Models**: Freemium vs Tiered Pricing
-- **4 Pricing Tiers**: Free Trial, Basic, Medium, Enterprise
+- **4 Pricing Tiers**: Free Trial, Basic, Premium, Enterprise
 - **Lab Usage Toggle**: Separate platform and lab costs
 - **Optional Features**: AI Agent and Managed Services
 - **7 Pre-configured Add-ons**: Including D365, Security Copilot, etc.

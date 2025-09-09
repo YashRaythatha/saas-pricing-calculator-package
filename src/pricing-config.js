@@ -1,4 +1,4 @@
-// SaaS Pricing Configuration
+// Hackathon Pricing Configuration
 // Edit this file to update pricing - changes will automatically reflect in the calculator
 // Last updated: 2024
 
@@ -17,7 +17,7 @@ export const PRICING_CONFIG = {
       key: "basic",
       name: "Basic Plan",
       validityDays: 45,
-      maxUsers: 500,
+      maxUsers: 2000,
       platformPerSeat: 125,
       labPerSeat: 75
     },
@@ -25,7 +25,7 @@ export const PRICING_CONFIG = {
       key: "medium",
       name: "Premium Plan",
       validityDays: 45,
-      maxUsers: 2000,
+      maxUsers: 5000,
       platformPerSeat: 100,
       labPerSeat: 125
     },
@@ -33,7 +33,7 @@ export const PRICING_CONFIG = {
       key: "enterprise",
       name: "Enterprise Plan",
       validityDays: 60,
-      maxUsers: 5000,
+      maxUsers: 10000,
       platformPerSeat: 75,
       labPerSeat: 150
     }
@@ -89,13 +89,21 @@ export const PRICING_CONFIG = {
   optionalFeatures: {
     aiAgent: {
       name: "AI Agent",
-      perSeat: 0
+      perSeat: 70
     },
     managedServices: {
       name: "Managed Services",
       perSeat: 0
     }
   },
+
+  // AI Agent core features
+  aiAgentFeatures: [
+    "Agentic Scoring",
+    "Idea Generator",
+    "Synthetic Data Creation",
+    "AI Mentor"
+  ],
 
   // UI Configuration
   ui: {
@@ -121,3 +129,6 @@ export const getAddons = () => PRICING_CONFIG.addons;
 
 // Helper function to get optional features
 export const getOptionalFeatures = () => PRICING_CONFIG.optionalFeatures;
+
+// Helper function to get AI Agent features
+export const getAiAgentFeatures = () => PRICING_CONFIG.aiAgentFeatures;

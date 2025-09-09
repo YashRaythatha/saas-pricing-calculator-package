@@ -1,4 +1,4 @@
-# SaaS Pricing Calculator - Client Integration Package
+# Hackathon Pricing Calculator - Client Integration Package
 
 A professional, feature-rich pricing calculator component for React applications with Tailwind CSS styling.
 

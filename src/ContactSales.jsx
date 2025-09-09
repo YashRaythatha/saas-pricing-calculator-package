@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import VectorSenseLogo from './VectorSenseLogo';
 
 export default function ContactSales() {
   const navigate = useNavigate();
@@ -74,9 +75,12 @@ export default function ContactSales() {
             </svg>
             Back to Pricing Calculator
           </button>
-          <h1 className="bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 bg-clip-text text-3xl font-extrabold text-transparent">
-            Contact our sales team
-          </h1>
+          <div className="flex items-center gap-4 mb-6">
+            <VectorSenseLogo width="130" height="35" />
+            <h1 className="bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 bg-clip-text text-3xl font-extrabold text-transparent">
+              Contact our sales team
+            </h1>
+          </div>
         </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">

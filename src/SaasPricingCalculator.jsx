@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { usePricing } from "./PricingContext";
+import VectorSenseLogo from "./VectorSenseLogo";
 
 /* ---------- Utils ---------- */
 const usd = (n) =>
@@ -138,6 +139,24 @@ export default function SaasPricingCalculator() {
 
   const [aiAgentOn, setAiAgentOn] = useState(false);
   const [managedOn, setManagedOn] = useState(false);
+
+  // Validation for seat limits
+  const getPlanValidation = (seatCount, currentPlan) => {
+    if (seatCount === 0) return null;
+    
+    if (currentPlan === "basic" && seatCount > 2000) {
+      return "Basic plan supports up to 2,000 seats. Please select an appropriate plan.";
+    }
+    if (currentPlan === "medium" && seatCount > 5000) {
+      return "Premium plan supports up to 5,000 seats. Please select an appropriate plan.";
+    }
+    if (currentPlan === "enterprise" && seatCount <= 10000) {
+      return "Enterprise plan is for 10,000+ seats. Please select an appropriate plan.";
+    }
+    return null;
+  };
+
+  const validationMessage = getPlanValidation(seats, planKey);
   
   // Get optional features pricing from context
   const aiAgentPerSeat = pricingData.optionalFeatures.aiAgent.perSeat;
@@ -173,7 +192,8 @@ export default function SaasPricingCalculator() {
 
       {/* Header */}
       <header className="mx-auto mb-6 max-w-6xl">
-        <div className="flex items-center justify-center">
+        <div className="flex items-center gap-4 mb-4">
+          <VectorSenseLogo width="140" height="35" />
           <h1 className="bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 bg-clip-text text-3xl font-extrabold text-transparent">
             Hackathon Pricing Calculator
           </h1>
@@ -229,7 +249,7 @@ export default function SaasPricingCalculator() {
                           <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
                           </svg>
-                          <span>Up to {p.maxUsers.toLocaleString()}+ users</span>
+                          <span>{p.unlimited ? `${p.maxUsers.toLocaleString()}+` : `Up to ${p.maxUsers.toLocaleString()}`} users</span>
                         </div>
                       </div>
                     </button>
@@ -290,6 +310,11 @@ export default function SaasPricingCalculator() {
                   step={1}
                   prefix=""
                 />
+                {validationMessage && (
+                  <div className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-3 py-2 mt-2">
+                    ⚠️ {validationMessage}
+                  </div>
+                )}
               </div>
 
               <div className="flex items-center">

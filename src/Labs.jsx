@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLabs } from './LabsContext';
+import VectorSenseLogo from './VectorSenseLogo';
 
 export default function Labs() {
   const navigate = useNavigate();
@@ -25,10 +26,13 @@ export default function Labs() {
               Back to Pricing Calculator
             </button>
           </div>
-          <h1 className="bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 bg-clip-text text-3xl font-extrabold text-transparent">
-            Available Labs
-          </h1>
-          <p className="text-lg text-slate-600 mt-2">Choose from our comprehensive selection of specialized lab environments</p>
+          <div className="flex items-center gap-4 mb-6">
+            <VectorSenseLogo width="130" height="35" />
+            <h1 className="bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 bg-clip-text text-3xl font-extrabold text-transparent">
+              Available Labs
+            </h1>
+          </div>
+          <p className="text-lg text-slate-600 mt-2 text-center">Choose from our comprehensive selection of specialized lab environments</p>
         </header>
 
         {/* Labs Grid */}

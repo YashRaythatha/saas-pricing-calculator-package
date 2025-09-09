@@ -34,6 +34,7 @@ export const PRICING_CONFIG = {
       name: "Enterprise Plan",
       validityDays: 60,
       maxUsers: 10000,
+      unlimited: true,
       platformPerSeat: 75,
       labPerSeat: 150
     }
